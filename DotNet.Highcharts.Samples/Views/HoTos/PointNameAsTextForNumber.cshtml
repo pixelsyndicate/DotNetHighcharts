@@ -1,0 +1,36 @@
+﻿@model DotNet.Highcharts.Highcharts
+@{
+    ViewBag.Title = "Point name as text for number";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+
+@(Model)
+
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult PointNameAsTextForNumber()
+{
+    Highcharts chart = new Highcharts("chart")
+        .InitChart(new Chart {Type = ChartTypes.Column})
+        .SetTitle(new Title {Text = "Chart 1"})
+        .SetXAxis(new XAxis
+        {
+            Categories = new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun"}
+        })
+        .SetSeries(new Series
+        {
+            Data = new Data(new[]
+            {
+                new Point {Name = "'1'", Y = 4},
+                new Point {Name = "'2'", Y = 6},
+                new Point {Name = "'3'", Y = 5},
+                new Point {Name = "It\\'s working like that!", Y = 5},
+                new Point {Name = "'Max\\'s car.'", Y = 4},
+                new Point {Name = "6", Y = 3}
+            })
+        });
+    return View(chart);
+}
+</pre>
+</div>

@@ -1,0 +1,35 @@
+﻿@model DotNet.Highcharts.Highcharts
+@{
+    ViewBag.Title = "Bind Decimal Values";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+
+@(Model)
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult BindDecimalValues()
+{
+    List<decimal> values = new List<decimal>
+    {
+        (decimal) 29.9,
+        (decimal) 71.5,
+        (decimal) 106.4,
+        (decimal) 129.2,
+        111
+    };
+    Highcharts chart = new Highcharts("chart")
+        .InitChart(new Chart {Type = ChartTypes.Spline})
+        .SetTitle(new Title {Text = "Chart with decimal values"})
+        .SetXAxis(new XAxis
+        {
+            Categories = new[] {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"}
+        })
+        .SetSeries(new Series
+        {
+            Data = new Data(values.Select(x => (object) x).ToArray())
+        });
+    return View(chart);
+}
+</pre>
+</div>

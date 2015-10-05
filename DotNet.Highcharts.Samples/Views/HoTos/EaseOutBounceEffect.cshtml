@@ -1,0 +1,38 @@
+﻿@model DotNet.Highcharts.Highcharts
+@{
+    ViewBag.Title = "EaseOutBounce Effect";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+
+@(Model)
+
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult EaseOutBounceEffect()
+{
+    Highcharts chart = new Highcharts("chart")
+        .InitChart(new Chart {Type = ChartTypes.Column})
+        .SetTitle(new Title {Text = "EaseOutBounce Effect"})
+        .SetPlotOptions(new PlotOptions
+        {
+            Column =
+                new PlotOptionsColumn
+                {
+                    Animation =
+                        new Animation(new AnimationConfig {
+                            Duration = 2000, Easing = EasingTypes.EaseOutBounce})
+                }
+        })
+        .SetXAxis(new XAxis
+        {
+            Categories = new[] {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"}
+        })
+        .SetSeries(new Series
+        {
+            Data = new Data(new object[] {29.9, 71.5, 106.4, 129.2, 111})
+        });
+    return View(chart);
+}
+</pre>
+</div>

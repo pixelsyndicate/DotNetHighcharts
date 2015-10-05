@@ -1,0 +1,45 @@
+﻿@model DotNet.Highcharts.Highcharts
+@{
+    ViewBag.Title = "Click Event on Series Point with URL";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+
+@(Model)
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult SeriesPointEventsClickUrl()
+{
+    object[] data =
+    {
+        new {y = 29.9, url = "http://bing.com/search?q=foo"},
+        new {y = 71.5, url = "http://bing.com/search?q=bar"},
+        new {y = 106.4, url = "http://bing.com/search?q=foo+bar"}
+    };
+    Highcharts chart = new Highcharts("chart")
+        .InitChart(new Chart {Type = ChartTypes.Column})
+        .SetXAxis(new XAxis
+        {
+            Categories =
+                new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+        })
+        .SetPlotOptions(new PlotOptions
+        {
+            Series = new PlotOptionsSeries
+            {
+                Cursor = Cursors.Pointer,
+                Point = new PlotOptionsSeriesPoint
+                {
+                    Events = new PlotOptionsSeriesPointEvents
+                    {
+                        Click = "function() { location.href = this.options.url; }"
+                    }
+                }
+            }
+        })
+        .SetSeries(new Series {Data = new Data(data)});
+    return View(chart);
+}
+</pre>
+</div>

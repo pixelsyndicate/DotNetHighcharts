@@ -1,0 +1,56 @@
+﻿@model DotNet.Highcharts.Highcharts
+@{
+    ViewBag.Title = "PlotBandEvents";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+
+@(Model)
+<div id="report"></div>
+
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult PlotBandEvents()
+{
+    Highcharts chart = new Highcharts("chart")
+        .SetTitle(new Title {Text = "Plot band events"})
+        .SetXAxis(new XAxis
+        {
+            TickInterval = 24*3600*1000, // one day
+            Type = AxisTypes.Datetime,
+            PlotBands = new[]
+            {
+                new XAxisPlotBands
+                {
+                    Color = ColorTranslator.FromHtml("#FCFFC5"),
+                    From = Tools.GetTotalMilliseconds(new DateTime(2010, 1, 2)),
+                    To = Tools.GetTotalMilliseconds(new DateTime(2010, 1, 4)),
+                    Events = new Events
+                    {
+                        Click = "function(e) { $('#report').html(e.type); }",
+                        Mouseover = "function(e) { $('#report').html(e.type); }",
+                        Mouseout = "function(e) { $('#report').html(e.type); }"
+                    }
+                }
+            }
+        })
+        .SetPlotOptions(new PlotOptions
+        {
+            Series = new PlotOptionsSeries
+            {
+                PointStart = new PointStart(new DateTime(2010, 1, 1)),
+                PointInterval = 24*3600*1000
+            }
+        })
+        .SetSeries(new Series
+        {
+            Data = new Data(new object[]
+            {
+                29.9, 71.5, 106.4, 129.2, 144.0, 
+                176.0, 135.6, 148.5, 216.4
+            })
+        });
+    return View(chart);
+}
+</pre>
+</div>

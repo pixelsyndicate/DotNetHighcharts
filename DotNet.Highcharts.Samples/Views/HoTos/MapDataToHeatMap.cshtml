@@ -1,0 +1,99 @@
+﻿@model DotNet.Highcharts.Highcharts
+
+
+@{
+    ViewBag.Title = "How to map data to a Heatmap";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+
+@(Model)
+
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult MapDataToHeatMap()
+{
+    // random sales data
+    Random rand = new Random();
+
+    // xAxisCategories
+    string[] xAxisCategories = { 
+        "Alexander", "Marie", "Maximilian", 
+        "Sophia", "Lukas", "Maria", "Leon", 
+        "Anna", "Tim", "Laura" };
+
+    // yAxisCategories
+    string[] yAxisCategories = { 
+        "Monday", "Tuesday", "Wednesday", 
+        "Thursday", "Friday" };
+
+    // create a grid-map for the y,x categories
+    int counter = 0;
+    object[] arrayOfArrays = new object[(xAxisCategories.Length * yAxisCategories.Length)];
+
+    // [x,y,d]
+    for (int x = 0; x < xAxisCategories.Length; x++)
+    {
+        for (int y = 0; y < yAxisCategories.Length; y++)
+        {
+            decimal dataDecimal = Math.Round((decimal)rand.Next(0, 50), 2);
+            arrayOfArrays[counter] = new object[] { x, y, dataDecimal };
+            counter++;
+        }
+    }
+
+    Highcharts chart = new Highcharts("chart")
+        .InitChart(new Chart
+        {
+            Type = ChartTypes.Heatmap,
+            MarginTop = 40,
+            MarginBottom = 80,
+            ClassName = "chart",
+            PlotBorderWidth = 1
+        })
+        .SetTitle(new Title
+        {
+            Text = "Sales per employee per weekday"
+        })
+        .SetXAxis(new XAxis
+        {
+            Categories = xAxisCategories
+        })
+        .SetYAxis(new YAxis
+        {
+            Categories = yAxisCategories,
+            Title = new YAxisTitle { Text = string.Empty }
+        })
+        .SetLegend(new Legend
+        {
+            Layout = Layouts.Vertical,
+            Align = HorizontalAligns.Right,
+            VerticalAlign = VerticalAligns.Top,
+            Margin = 0,
+            X = -10,
+            Y = 25,
+            BorderWidth = 0,
+            SymbolHeight = 280
+        })
+        .SetColorAxis(new ColorAxis
+        {
+            Min = 0,
+            MinColor = "#FFFFFF",
+            MaxColor = "#FF0000"
+        })
+        .SetTooltip(new Tooltip
+        {
+            Formatter = @@"
+function () { return '&lt;b&gt;' + this.series.xAxis.categories[this.point.x] 
++ '&lt;/b&gt; sold &lt;br&gt;&lt;b&gt;' + this.point.value + '&lt;/b&gt; items on &lt;br&gt;&lt;b&gt;' 
++ this.series.yAxis.categories[this.point.y] + '&lt;/b&gt;'; }"
+        })
+        .SetSeries(new Series
+        {
+            Name = "Sales per employee",
+            Data = new Data(arrayOfArrays)
+        });
+    return View(chart);
+}
+</pre>
+</div>

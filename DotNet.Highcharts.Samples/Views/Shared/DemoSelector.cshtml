@@ -1,0 +1,199 @@
+﻿<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingLineCharts">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLineCharts" aria-expanded="true" aria-controls="collapseLineCharts">
+                    Line charts
+                </a>
+            </h4>
+        </div>
+        <div data-panel-index="0" id="collapseLineCharts" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingLineCharts">
+            <div class="list-group">
+                @Html.ActionLink("Basic Line", "BasicLine", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Ajax loaded data, clickable points", "AjaxLoad", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("With data labels", "DataLabels", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Time series, zoomable", "TimeSeriesZoomable", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Spline with inverted axes", "SplineInvertedAxes", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Spline with symbols", "SplineWithSymbols", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Spline with plot bands", "SplineWithPlotBands", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Time data with inrregular intervals", "TimeDataWithInrregularIntervals", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Logarithmic Axis", "LogarithmicAxis", "Demo", null, new { @class = "list-group-item" })
+
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingAreaCharts">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAreaCharts" aria-expanded="false" aria-controls="collapseAreaCharts">
+                    Area charts
+                </a>
+            </h4>
+        </div>
+        <div data-panel-index="1" id="collapseAreaCharts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingAreaCharts">
+            <div class="list-group">
+                @Html.ActionLink("Basic area", "BasicArea", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Area with negative values", "AreaWithNegativeValues", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Stacked area", "StackedArea", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Percentage area", "PercentageArea", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Area with missing points", "AreaWithMissingPoints", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Inverted axes", "InvertedAxes", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Area-spline", "AreaSpline", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Area Range Chart", "AreaRangeChart", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Area Range and Line", "AreaRangeAndLine", "Demo", null, new { @class = "list-group-item" })
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingColumnAndBarCharts">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseColumnAndBarCharts" aria-expanded="false" aria-controls="collapseColumnAndBarCharts">
+                    Column and bar charts
+                </a>
+            </h4>
+        </div>
+        <div data-panel-index="2" id="collapseColumnAndBarCharts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingColumnAndBarCharts">
+            <div class="list-group">
+                @Html.ActionLink("Basic bar", "BasicBar", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Stacked bar", "StackedBar", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Bar with negotive stack", "BarWithNegotiveStack", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Basic column", "BasicColumn", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Column with negative values", "ColumnWithNegativeValues", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Stacked column", "StackedColumn", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Stacked and grouped column", "StackedAndGroupedColumn", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Stacked percentage column", "StackedPercentageColumn", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Column with rotated labels", "ColumnWithRotatedLabels", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Column with drilldown", "ColumnWithDrilldown", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Column Range", "ColumnRange", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Fixed Placement Columns", "FixedPlacementColumns", "Demo", null, new { @class = "list-group-item" })
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingPieCharts">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePieCharts" aria-expanded="false" aria-controls="collapsePieCharts">
+                    Pie charts
+                </a>
+            </h4>
+        </div>
+        <div data-panel-index="3" id="collapsePieCharts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPieCharts">
+            <div class="list-group">
+                @Html.ActionLink("Pie chart", "PieChart", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Pie with gradient fill", "PieWithGradientFill", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Pie With Monochrome Fill", "PieWithMonochromeFill", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Donut chart", "DonutChart", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Semi Circle Donut", "SemiCircleDonut", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Pie with drilldown", "PieWithDrilldown", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Pie with legend", "PieWithLegend", "Demo", null, new { @class = "list-group-item" })
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingScatterandBubbleCharts">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseScatterAndBubbleCharts" aria-expanded="false" aria-controls="collapseScatterandBubbleCharts">
+                    Scatter and bubble charts
+                </a>
+            </h4>
+        </div>
+        <div data-panel-index="4" id="collapseScatterAndBubbleCharts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingScatterandBubbleCharts">
+            <div class="list-group">
+                @Html.ActionLink("Scatter Plot", "ScatterPlot", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Bubble Chart", "BubbleChart", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Bubbles 3D", "Bubbles3D", "Demo", null, new { @class = "list-group-item" })
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingDynamicCharts">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDynamicCharts" aria-expanded="false" aria-controls="collapseDynamicCharts">
+                    Dynamic charts
+                </a>
+            </h4>
+        </div>
+        <div data-panel-index="5" id="collapseDynamicCharts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDynamicCharts">
+            <div class="list-group">
+                @Html.ActionLink("Spline update each second", "SplineUpdateEachSecond", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Click to add a point", "ClickToAddPoint", "Demo", null, new { @class = "list-group-item" })
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingCombinationCharts">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCombinationCharts" aria-expanded="false" aria-controls="collapseCombinationChart">
+                    Combination Charts
+                </a>
+            </h4>
+        </div>
+        <div data-panel-index="6" id="collapseCombinationCharts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingCombinationCharts">
+            <div class="list-group">
+                @Html.ActionLink("Column, line and pie", "ColumnLineAndPie", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Dual axes, line and column", "DualAxesLineAndColumn", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Multiple axes", "MultipleAxes", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Scatter plot with regression line", "ScatterPlotWithRegressionLine", "Demo", null, new { @class = "list-group-item" })
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading3dCharts">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3dCharts" aria-expanded="false" aria-controls="collapse3dCharts">
+                    3D Charts
+                </a>
+            </h4>
+        </div>
+        <div data-panel-index="7" id="collapse3dCharts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3dCharts">
+            <div class="list-group">
+                @Html.ActionLink("3D Column", "ThreeDColumn", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("3D Column With Null And 0 Values", "ThreeDColumnWithNullAndZeroValues", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("3D Column With Stacking And Grouping", "ThreeDColumnWithStackingAndGrouping", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("3D Pie", "ThreeDPie", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("3D Donut", "ThreeDDonut", "Demo", null, new { @class = "list-group-item" })
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingGuages">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseGuages" aria-expanded="false" aria-controls="collapseGuages">
+                    Guages
+                </a>
+            </h4>
+        </div>
+        <div data-panel-index="8" id="collapseGuages" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingGuages">
+            <div class="list-group">
+                @Html.ActionLink("Angular Gauge", "AngularGauge", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Gauge With Dual Axes", "GaugeWithDualAxes", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Solid Gauge", "SolidGauge", "Demo", null, new { @class = "list-group-item" })
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingMoreCharts">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMoreCharts" aria-expanded="false" aria-controls="collapseMoreCharts">
+                    More Chart Types
+                </a>
+            </h4>
+        </div>
+        <div data-panel-index="9" id="collapseMoreCharts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMoreCharts">
+            <div class="list-group">
+                @Html.ActionLink("Polar Chart", "PolarChart", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Speederweb", "Speederweb", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Box Plot", "BoxPlot", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Waterfall", "Waterfall", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Funnel", "Funnel", "Demo", null, new { @class = "list-group-item" })
+                @Html.ActionLink("HeatMap", "HeatMap", "Demo", null, new { @class = "list-group-item" })
+            </div>
+        </div>
+    </div>
+</div>

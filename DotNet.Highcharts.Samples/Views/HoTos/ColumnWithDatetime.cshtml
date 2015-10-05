@@ -1,0 +1,53 @@
+﻿@model DotNet.Highcharts.Highcharts
+@{
+    ViewBag.Title = "Columns with datetime";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+
+@(Model)
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult ColumnWithDatetime()
+{
+    object[,] data1 =
+    {
+        {new DateTime(2013, 11, 17), 1758},
+        {new DateTime(2013, 11, 16), 2172},
+        {new DateTime(2013, 11, 15), 1991},
+        {new DateTime(2013, 11, 14), 1671},
+        {new DateTime(2013, 11, 13), 2365},
+        {new DateTime(2013, 11, 12), 1518},
+        {new DateTime(2013, 11, 11), 1932}
+    };
+    object[,] data2 =
+    {
+        {new DateTime(2013, 11, 17), 15099.50},
+        {new DateTime(2013, 11, 16), 17533.50},
+        {new DateTime(2013, 11, 15), 17370},
+        {new DateTime(2013, 11, 14), 9224},
+        {new DateTime(2013, 11, 13), 14602.50},
+        {new DateTime(2013, 11, 12), 11506.50},
+        {new DateTime(2013, 11, 11), 11663.50}
+    };
+    Highcharts chart = new Highcharts("chart")
+        .InitChart(new Chart {Type = ChartTypes.Column})
+        .SetPlotOptions(new PlotOptions
+        {
+            Column = new PlotOptionsColumn {PointRange = 86400000}
+        })
+        .SetTitle(new Title {Text = "Task Duration vs Baseline"})
+        .SetXAxis(new XAxis
+        {
+            TickInterval = 86400000,
+            Type = AxisTypes.Datetime
+        })
+        .SetSeries(new[]
+        {
+            new Series {Data = new Data(data1), Name = "Actual Duration"},
+            new Series {Data = new Data(data2), Name = "Baseline Duration"}
+        });
+    return View(chart);
+}
+</pre>
+</div>

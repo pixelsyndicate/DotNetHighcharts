@@ -1,0 +1,111 @@
+﻿@model DotNet.Highcharts.Highcharts
+@{
+    ViewBag.Title = "Chart inside JavaScript function";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+<input type="button" onclick="DrawChart()" value="Draw chart"/>
+@(Model)
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+ public ActionResult ChartInFunction()
+{
+    Highcharts chart = new Highcharts("newChart")
+        .SetTitle(new Title {Text = "Chart inside JavaScript function"})
+        .SetTooltip(new Tooltip
+        {
+            Formatter = "function() { return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %'; }"
+        })
+        .SetXAxis(new XAxis {Categories = new[] {"Apples", "Oranges", "Pears", "Bananas", "Plums"}})
+        .SetTooltip(new Tooltip {Formatter = "TooltipFormatter"})
+        .SetLabels(new Labels
+        {
+            Items = new[]
+            {
+                new LabelsItems
+                {
+                    Html = "Total fruit consumption",
+                    Style = "left: '40px', top: '8px', color: 'black'"
+                }
+            }
+        })
+        .SetPlotOptions(new PlotOptions
+        {
+            Pie = new PlotOptionsPie
+            {
+                Center = new[] {new PercentageOrPixel(100), new PercentageOrPixel(80)},
+                Size = new PercentageOrPixel(100),
+                ShowInLegend = false,
+                DataLabels = new PlotOptionsPieDataLabels {Enabled = false}
+            }
+        })
+        .SetSeries(new[]
+        {
+            new Series
+            {
+                Type = ChartTypes.Column,
+                Name = "Jane",
+                Data = new Data(new object[] {3, 2, 1, 3, 4})
+            },
+            new Series
+            {
+                Type = ChartTypes.Column,
+                Name = "John",
+                Data = new Data(new object[] {2, 3, 5, 7, 6})
+            },
+            new Series
+            {
+                Type = ChartTypes.Column,
+                Name = "Joe",
+                Data = new Data(new object[] {4, 3, 3, 9, 0})
+            },
+            new Series
+            {
+                Type = ChartTypes.Spline,
+                Name = "Average",
+                Data = new Data(new object[] {3, 2.67, 3, 6.33, 3.33})
+            },
+            new Series
+            {
+                Type = ChartTypes.Pie,
+                Name = "Total consumption",
+                Data = new Data(new[]
+                {
+                    new Point
+                    {
+                        Name = "Jane",
+                        Y = 13,
+                        Color = Color.FromName("colors[5]")
+                    },
+                    new Point
+                    {
+                        Name = "John",
+                        Y = 23,
+                        Color = Color.FromName("colors[6]")
+                    },
+                    new Point
+                    {
+                        Name = "Joe",
+                        Y = 19,
+                        Color = Color.FromName("colors[7]")
+                    }
+                }
+                    )
+            }
+        })
+        .InFunction("DrawChart")
+        .AddJavascripVariable("colors", "Highcharts.getOptions().colors")
+        .AddJavascripFunction("TooltipFormatter",
+            "var s;
+            if (this.point.name) { // the pie chart
+                s = ''+
+                    this.point.name +': '+ this.y +' fruits';
+            } else {
+                s = ''+
+                    this.x  +': '+ this.y;
+            }
+            return s;");
+    return View(chart);
+}
+</pre>
+</div>

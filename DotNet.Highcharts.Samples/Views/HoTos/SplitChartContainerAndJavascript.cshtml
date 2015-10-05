@@ -1,0 +1,32 @@
+﻿@model DotNet.Highcharts.Highcharts
+@{
+    ViewBag.Title = "Split Chart Container And Javascript";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+
+@Model.ChartContainerHtmlString()
+
+@section JavaScripts{
+    @Model.ChartScriptHtmlString()
+}
+
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult SplitChartContainerAndJavascript()
+{
+    Highcharts chart = new Highcharts("chart")
+        .InitChart(new Chart {Type = ChartTypes.Column})
+        .SetTitle(new Title {Text = "Chart 1"})
+        .SetXAxis(new XAxis
+        {
+            Categories = new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun"}
+        })
+        .SetSeries(new Series
+        {
+            Data = new Data(new object[] {"8", "7", "4", "7", "9", "5"})
+        });
+    return View(chart);
+}
+</pre>
+</div>

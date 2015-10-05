@@ -1,0 +1,50 @@
+﻿@model DotNet.Highcharts.Highcharts
+@{
+    ViewBag.Title = "TransparentBackground";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+<div style="background-color:antiquewhite;">
+@(Model)
+</div>
+
+
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult TransparentBackground()
+{
+    Highcharts chart = new Highcharts("chart")
+        .InitChart(new Chart
+        {
+            BackgroundColor = new BackColorOrGradient(new Gradient
+            {
+                LinearGradient = new[] {0, 0, 0, 400},
+                Stops = new object[,]
+                {
+                    {0, Color.FromArgb(13, 255, 255, 255)},
+                    {1, Color.FromArgb(13, 255, 255, 255)}
+                }
+            })
+        })
+        .SetTitle(new Title {Text = "Disabled background"})
+        .SetPlotOptions(new PlotOptions
+        {
+            Column = new PlotOptionsColumn {Animation = new Animation(false)}
+        })
+        .SetXAxis(new XAxis
+        {
+            Categories =
+                new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+        })
+        .SetSeries(new Series
+        {
+            Data =
+                new Data(new object[]
+                {29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 
+                    135.6, 148.5, 216.4, 194.1, 95.6, 54.4})
+        });
+    return View(chart);
+}
+</pre>
+</div>

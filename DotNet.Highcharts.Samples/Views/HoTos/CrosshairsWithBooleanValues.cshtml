@@ -1,0 +1,37 @@
+﻿@model DotNet.Highcharts.Highcharts
+@{
+    ViewBag.Title = "Crosshairs With Boolean Values";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+
+@(Model)
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult CrosshairsWithBooleanValues()
+{
+    Highcharts chart = new Highcharts("chart")
+        .SetXAxis(new XAxis
+        {
+            Categories =
+                new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", 
+                    "Aug", "Sep", "Oct", "Nov", "Dec"}
+        })
+        .SetSeries(new Series
+        {
+            Data =
+                new Data(new object[]
+                {
+                    29.9, 71.5, 106.4, 129.2, 
+                    144.0, 176.0, 135.6, 148.5, 
+                    216.4, 194.1, 95.6, 54.4})
+        }).SetTooltip(new Tooltip
+        {
+            Shared = true, 
+            Crosshairs = new Crosshairs(true, true), 
+            Enabled = true
+        });
+    return View(chart);
+}
+</pre>
+</div>

@@ -1,0 +1,36 @@
+﻿@model DotNet.Highcharts.Highcharts
+
+@{
+    ViewBag.Title = "Use .NET Globalization";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+@(Model)
+
+
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+    public ActionResult UseDotNetGlobalization()
+    {
+        Highcharts chart = new Highcharts("chart")
+            .SetXAxis(new XAxis { Type = AxisTypes.Datetime })
+            .SetTitle(new Title { Text = "Using .NET Globalization (German)" })
+            .SetOptions(new GlobalOptions { 
+                Lang = new Helpers.Lang()
+                .SetAndUseCulture("de-DE"), 
+                Global = new Global { UseUTC = false } })
+            .SetSeries(new Series
+            {
+                PlotOptionsSeries = new PlotOptionsSeries
+                {
+                    PointStart = new PointStart(new DateTime(2012, 1, 1)),
+                    PointInterval = 3600 * 1000 * 24 * 10 // one day
+                },
+                Data = new Data(new object[] { 
+                    8929.9, 9071.5, 7106.4, 10129.2, 8144.0, 8176.9, 
+                    7135.6, 9148.5, 10216.4, 8194.1, 8995.6, 7754.4 })
+            });
+        return View(chart);
+    }
+</pre>
+</div>

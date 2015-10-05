@@ -1,0 +1,83 @@
+﻿@model DotNet.Highcharts.Container
+@{
+    ViewBag.Title = "Multiple charts in one page";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+<input type="button" onclick="DrawChart2()" value="Draw chart 2"/>
+<input type="button" onclick="DrawChart3()" value="Draw chart 3"/>
+@(Model)
+
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult MultipleCharts()
+{
+    Highcharts chart1 = new Highcharts("chart1")
+        .InitChart(new Chart {Type = ChartTypes.Column})
+        .SetTitle(new Title {Text = "Chart 1"})
+        .SetXAxis(new XAxis
+        {
+            Categories =
+                new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+        })
+        .SetSeries(new Series
+        {
+            Data =
+                new Data(new object[]
+                {29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 
+                    148.5, 216.4, 194.1, 95.6, 54.4})
+        });
+    Highcharts chart2 = new Highcharts("chart2")
+        .InitChart(new Chart {Type = ChartTypes.Bar})
+        .SetTitle(new Title {Text = "Chart 2"})
+        .SetXAxis(new XAxis
+        {
+            Categories =
+                new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+        })
+        .SetSeries(new Series
+        {
+            Data =
+                new Data(new object[]
+                {29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 
+                    148.5, 216.4, 194.1, 95.6, 54.4})
+        })
+        .InFunction("DrawChart2");
+    Highcharts chart3 = new Highcharts("chart3")
+        .InitChart(new Chart {Type = ChartTypes.Spline})
+        .SetTitle(new Title {Text = "Chart 3"})
+        .SetXAxis(new XAxis
+        {
+            Categories =
+                new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+        })
+        .SetSeries(new Series
+        {
+            Data =
+                new Data(new object[]
+                {29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 
+                    148.5, 216.4, 194.1, 95.6, 54.4})
+        })
+        .InFunction("DrawChart3");
+    Highcharts chart4 = new Highcharts("chart4")
+        .SetTitle(new Title {Text = "Chart 4"})
+        .SetXAxis(new XAxis
+        {
+            Categories =
+                new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+        })
+        .SetSeries(new Series
+        {
+            Data =
+                new Data(new object[]
+                {29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 
+                    148.5, 216.4, 194.1, 95.6, 54.4})
+        });
+    return View(new Container(new[] {chart1, chart2, chart3, chart4}));
+}
+</pre>
+</div>

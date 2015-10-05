@@ -1,0 +1,49 @@
+﻿@model DotNet.Highcharts.Highcharts
+@{
+    ViewBag.Title = "Multiple X-Axes";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+
+@(Model)
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult MultipleXAxes()
+{
+    Highcharts chart = new Highcharts("chart")
+        .SetTitle(new Title {Text = "Multiple X-Axes"})
+        .SetXAxis(new[]
+        {
+            new XAxis {Type = AxisTypes.Datetime},
+            new XAxis {Type = AxisTypes.Datetime, Opposite = true}
+        })
+        .SetSeries(new[]
+        {
+            new Series
+            {
+                Data =
+                    new Data(new object[]
+                    {29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4}),
+                PlotOptionsSeries = new PlotOptionsSeries
+                {
+                    PointStart = new PointStart(new DateTime(2010, 1, 1)),
+                    PointInterval = 24*3600*1000 // one day
+                }
+            },
+            new Series
+            {
+                Data =
+                    new Data(new object[]
+                    {176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4, 29.9, 71.5, 106.4, 129.2, 144.0}),
+                PlotOptionsSeries = new PlotOptionsSeries
+                {
+                    PointStart = new PointStart(new DateTime(2010, 1, 10)),
+                    PointInterval = 24*3600*1000 // one day
+                },
+                XAxis = "1"
+            }
+        });
+    return View(chart);
+}
+</pre>
+</div>

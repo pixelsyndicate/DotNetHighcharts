@@ -1,0 +1,59 @@
+﻿@model DotNet.Highcharts.Highcharts
+@{
+    ViewBag.Title = "Pie Chart With Events";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+
+@(Model)
+
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult PieChartWithEvents()
+{
+    Highcharts chart = new Highcharts("chart")
+        .InitChart(new Chart())
+        .SetPlotOptions(new PlotOptions
+        {
+            Pie = new PlotOptionsPie
+            {
+                AllowPointSelect = true,
+                Cursor = Cursors.Pointer,
+                ShowInLegend = true,
+                Events =
+                    new PlotOptionsPieEvents
+                    {
+                        Click = "function(event) { alert('The slice was clicked!'); }"
+                    },
+                Point =
+                    new PlotOptionsPiePoint
+                    {
+                        Events =
+                            new PlotOptionsPiePointEvents
+                            {
+                                LegendItemClick =
+                                    "function(event) " + 
+                                    "{ if (!confirm('Do you want to toggle the visibility of this slice?')) " + 
+                                    "{ return false; } }"
+                            }
+                    }
+            }
+        })
+        .SetSeries(new Series
+        {
+            Type = ChartTypes.Pie,
+            Name = "Browser share",
+            Data = new Data(new object[]
+            {
+                new object[] {"Firefox", 45.0},
+                new object[] {"IE", 26.8},
+                new object[] {"Chrome", 12.8},
+                new object[] {"Safari", 8.5},
+                new object[] {"Opera", 6.2},
+                new object[] {"Other\\'s", 0.7}
+            })
+        });
+    return View(chart);
+}
+</pre>
+</div>

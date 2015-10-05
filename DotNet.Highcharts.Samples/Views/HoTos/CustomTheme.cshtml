@@ -1,0 +1,142 @@
+﻿@model DotNet.Highcharts.Highcharts
+@{
+    ViewBag.Title = "CustomTheme";
+    Layout = "~/Views/Shared/_HowTosLayout.cshtml";
+}
+
+@(Model)
+<div class="col-sm-12">
+    <h4>Controller</h4>
+    <pre class="prettyprint">
+public ActionResult CustomTheme()
+{
+    Highcharts chart = new Highcharts("chart")
+        .SetOptions(new GlobalOptions
+        {
+            Colors = new[]
+            {
+                ColorTranslator.FromHtml("#DDDF0D"),
+                ColorTranslator.FromHtml("#7798BF"),
+                ColorTranslator.FromHtml("#55BF3B"),
+                ColorTranslator.FromHtml("#DF5353"),
+                ColorTranslator.FromHtml("#DDDF0D"),
+                ColorTranslator.FromHtml("#aaeeee"),
+                ColorTranslator.FromHtml("#ff0066"),
+                ColorTranslator.FromHtml("#eeaaee")
+            }
+        })
+        .InitChart(new Chart
+        {
+            BorderWidth = 0,
+            BorderRadius = 15,
+            PlotBackgroundColor = null,
+            PlotShadow = false,
+            PlotBorderWidth = 0,
+            BackgroundColor = new BackColorOrGradient(new Gradient
+            {
+                LinearGradient = new[] {0, 0, 0, 400},
+                Stops = new object[,]
+                {
+                    {0, Color.FromArgb(255, 96, 96, 96)},
+                    {1, Color.FromArgb(255, 16, 16, 16)}
+                }
+            })
+        })
+        .SetTitle(new Title
+        {
+            Text = "Gray Theme",
+            Style =
+                "color: '#FFF', font: '16px Lucida Grande," + 
+                " Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'"
+        })
+        .SetSubtitle(new Subtitle
+        {
+            Style =
+                "color: '#DDD', font: '12px Lucida Grande, " +
+                " Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'"
+        })
+        .SetXAxis(new XAxis
+        {
+            GridLineWidth = 0,
+            LineColor = ColorTranslator.FromHtml("#999"),
+            TickColor = ColorTranslator.FromHtml("#999"),
+            Categories =
+                new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"},
+            Labels = new XAxisLabels {Style = "color: '#999', fontWeight: 'bold'"},
+            Title =
+                new XAxisTitle
+                {
+                    Style =
+                        "color: '#AAA', font: 'bold 12px Lucida Grande, " +
+                " Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'"
+                }
+        })
+        .SetYAxis(new YAxis
+        {
+            AlternateGridColor = null,
+            MinorTickInterval = null,
+            GridLineColor = Color.FromArgb(255, 255, 255, 255),
+            LineWidth = 0,
+            TickWidth = 0,
+            Labels = new YAxisLabels {Style = "color: '#999',fontWeight: 'bold'"},
+            Title =
+                new YAxisTitle
+                {
+                    Style =
+                        "color: '#AAA',font: 'bold 12px Lucida Grande, " +
+                " Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'"
+                }
+        })
+        .SetLegend(new Legend
+        {
+            ItemStyle = "color: '#CCC'",
+            ItemHoverStyle = "color: '#FFF'",
+            ItemHiddenStyle = "color: '#333'"
+        })
+        .SetLabels(new Labels {Style = "color: '#CCC'"})
+        .SetTooltip(new Tooltip
+        {
+            BorderWidth = 0,
+            Style = "color: '#FFF'",
+            BackgroundColor = new BackColorOrGradient(new Gradient
+            {
+                LinearGradient = new[] {0, 0, 0, 50},
+                Stops = new object[,]
+                {
+                    {0, Color.FromArgb(200, 96, 96, 96)},
+                    {1, Color.FromArgb(200, 16, 16, 16)}
+                }
+            })
+        })
+        .SetPlotOptions(new PlotOptions
+        {
+            Line = new PlotOptionsLine
+            {
+                DataLabels = new PlotOptionsLineDataLabels {Color = ColorTranslator.FromHtml("#CCC")},
+                Marker = new PlotOptionsLineMarker {LineColor = ColorTranslator.FromHtml("#333")}
+            },
+            Spline =
+                new PlotOptionsSpline
+                {
+                    Marker = new PlotOptionsSplineMarker {LineColor = ColorTranslator.FromHtml("#333")}
+                },
+            Scatter =
+                new PlotOptionsScatter
+                {
+                    Marker = new PlotOptionsScatterMarker {LineColor = ColorTranslator.FromHtml("#333")}
+                }
+        })
+        .SetNavigation(new Navigation
+        {
+            ButtonOptions = new NavigationButtonOptions {SymbolStroke = ColorTranslator.FromHtml("#C0C0C0")}
+        })
+        .SetSeries(new Series
+        {
+            Data =
+                new Data(new object[]
+                {29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4})
+        });
+    return View(chart);
+}
+</pre>
+</div>
