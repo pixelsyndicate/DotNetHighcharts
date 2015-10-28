@@ -1,0 +1,8 @@
+obj
+bin
+/packages
+
+*.suo
+DotNet.Highcharts/DotNet.Highcharts.csproj.vspscc
+*.tmp
+*.vspscc
