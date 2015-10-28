@@ -11,10 +11,9 @@ using DotNet.Highcharts.Samples.Models;
 using Lang = DotNet.Highcharts.Helpers.Lang;
 using Point = DotNet.Highcharts.Options.Point;
 
-
 namespace DotNet.Highcharts.Samples.Controllers
 {
-    public class HowTosController : Controller
+    public class HoTosController : Controller
     {
         public ActionResult MultipleXAxes()
         {
