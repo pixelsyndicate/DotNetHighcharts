@@ -13,7 +13,7 @@ using Point = DotNet.Highcharts.Options.Point;
 
 namespace DotNet.Highcharts.Samples.Controllers
 {
-    public class HoTosController : Controller
+    public class HowTosController : Controller
     {
         public ActionResult MultipleXAxes()
         {

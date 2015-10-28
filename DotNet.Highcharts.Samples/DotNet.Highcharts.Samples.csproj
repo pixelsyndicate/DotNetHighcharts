@@ -104,7 +104,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\HoTosController.cs" />
+    <Compile Include="Controllers\HowTosController.cs" />
     <Compile Include="Models\ChartsData.cs" />
     <Compile Include="Controllers\DemoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -460,8 +460,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\jquery-2.0.0.min.map" />
-    <Content Include="Views\HoTos\CrosshairsWithBooleanValues.cshtml" />
-    <Content Include="Views\HoTos\PieChartWithEvents.cshtml" />
+    <Content Include="Views\HowTos\CrosshairsWithBooleanValues.cshtml" />
+    <Content Include="Views\HowTos\PieChartWithEvents.cshtml" />
     <Content Include="Views\Demo\AreaRangeChart.cshtml" />
     <Content Include="Views\Demo\AreaRangeAndLine.cshtml" />
     <Content Include="Views\Demo\AngularGauge.cshtml" />
@@ -476,8 +476,8 @@
     <Content Include="Views\Demo\PieWithGradientFill.cshtml" />
     <Content Include="Views\Demo\ColumnRange.cshtml" />
     <Content Include="Views\Demo\LogarithmicAxis.cshtml" />
-    <Content Include="Views\HoTos\SeriesPointEventsClickUrl.cshtml" />
-    <Content Include="Views\HoTos\ColumnWithDatetime.cshtml" />
+    <Content Include="Views\HowTos\SeriesPointEventsClickUrl.cshtml" />
+    <Content Include="Views\HowTos\ColumnWithDatetime.cshtml" />
     <Content Include="Views\Demo\FixedPlacementColumns.cshtml" />
     <Content Include="Views\Demo\SemiCircleDonut.cshtml" />
     <Content Include="Views\Demo\PieWithMonochromeFill.cshtml" />
@@ -486,12 +486,12 @@
     <Content Include="Views\Demo\ThreeDColumnWithStackingAndGrouping.cshtml" />
     <Content Include="Views\Demo\ThreeDPie.cshtml" />
     <Content Include="Views\Demo\ThreeDDonut.cshtml" />
-    <Content Include="Views\HoTos\SplitChartContainerAndJavascript.cshtml" />
-    <Content Include="Views\HoTos\PointNameAsTextForNumber.cshtml" />
+    <Content Include="Views\HowTos\SplitChartContainerAndJavascript.cshtml" />
+    <Content Include="Views\HowTos\PointNameAsTextForNumber.cshtml" />
     <Content Include="Views\Demo\SolidGauge.cshtml" />
     <Content Include="Views\Demo\PieWithDrilldown.cshtml" />
     <Content Include="Views\Demo\HeatMap.cshtml" />
-    <Content Include="Views\HoTos\MapDataToHeatMap.cshtml" />
+    <Content Include="Views\HowTos\MapDataToHeatMap.cshtml" />
     <None Include="Views\Shared\DemoSelector.cshtml" />
     <None Include="Views\Shared\HowToSelector.cshtml" />
   </ItemGroup>
@@ -545,20 +545,20 @@
     <Content Include="Views\Demo\SplineUpdateEachSecond.cshtml" />
     <Content Include="Views\Demo\ClickToAddPoint.cshtml" />
     <Content Include="Views\Shared\_HowTosLayout.cshtml" />
-    <Content Include="Views\HoTos\MultipleXAxes.cshtml" />
-    <Content Include="Views\HoTos\ChartInFunction.cshtml" />
-    <Content Include="Views\HoTos\MultipleCharts.cshtml" />
-    <Content Include="Views\HoTos\DisableAnimation.cshtml" />
-    <Content Include="Views\HoTos\EaseOutBounceEffect.cshtml" />
-    <Content Include="Views\HoTos\BindDecimalValues.cshtml" />
-    <Content Include="Views\HoTos\UseDotNetGlobalization.cshtml" />
-    <Content Include="Views\HoTos\BindDataFromDictionary.cshtml" />
-    <Content Include="Views\HoTos\BindDataFromObjectList.cshtml" />
-    <Content Include="Views\HoTos\CustomTheme.cshtml" />
-    <Content Include="Views\HoTos\TooltipCrosshairs.cshtml" />
-    <Content Include="Views\HoTos\ThemingTheResetButton.cshtml" />
-    <Content Include="Views\HoTos\PlotBandEvents.cshtml" />
-    <Content Include="Views\HoTos\TransparentBackground.cshtml" />
+    <Content Include="Views\HowTos\MultipleXAxes.cshtml" />
+    <Content Include="Views\HowTos\ChartInFunction.cshtml" />
+    <Content Include="Views\HowTos\MultipleCharts.cshtml" />
+    <Content Include="Views\HowTos\DisableAnimation.cshtml" />
+    <Content Include="Views\HowTos\EaseOutBounceEffect.cshtml" />
+    <Content Include="Views\HowTos\BindDecimalValues.cshtml" />
+    <Content Include="Views\HowTos\UseDotNetGlobalization.cshtml" />
+    <Content Include="Views\HowTos\BindDataFromDictionary.cshtml" />
+    <Content Include="Views\HowTos\BindDataFromObjectList.cshtml" />
+    <Content Include="Views\HowTos\CustomTheme.cshtml" />
+    <Content Include="Views\HowTos\TooltipCrosshairs.cshtml" />
+    <Content Include="Views\HowTos\ThemingTheResetButton.cshtml" />
+    <Content Include="Views\HowTos\PlotBandEvents.cshtml" />
+    <Content Include="Views\HowTos\TransparentBackground.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNet.Highcharts\DotNet.Highcharts.csproj">
