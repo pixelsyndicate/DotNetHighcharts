@@ -5,4 +5,22 @@
 }
 
 @(Model)
-v
+<div class="col-sm-12">
+    <h4>Controller</h4>
+<pre class="prettyprint">
+Highcharts chart = new Highcharts("chart")
+   .InitChart(new Chart { Type = ChartTypes.Column })
+   .SetTitle(new Title { Text = "Column chart with negative values" })
+   .SetXAxis(new XAxis { Categories = new[] { "Apples", "Oranges", "Pears", "Grapes", "Bananas" } })
+   .SetTooltip(new Tooltip { Formatter = "function() { return ''+ this.series.name +': '+ this.y +''; }" })
+   .SetCredits(new Credits { Enabled = false })
+   .SetSeries(new[]
+   {
+       new Series { Name = "John", Data = new Data(new object[] { 5, 3, 4, 7, 2 }) },
+       new Series { Name = "Jane", Data = new Data(new object[] { 2, -2, -3, 2, 1 }) },
+       new Series { Name = "Joe", Data = new Data(new object[] { 3, 4, 4, -2, 5 }) }
+   });
+
+return View(chart);
+</pre>
+</div>
